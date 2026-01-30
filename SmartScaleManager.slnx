@@ -3,5 +3,6 @@
     <Project Path="src/Api/Api.csproj" />
     <Project Path="src/Application/Application.csproj" />
     <Project Path="src/Core/Core.csproj" />
+    <Project Path="src/Infra/Infra.csproj" />
   </Folder>
 </Solution>
