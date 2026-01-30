@@ -14,21 +14,20 @@ public class User
 
     protected User() { }
 
-    private User(long id, UserName username, string hashPassword, Role role)
+    private User(UserName username, string hashPassword, Role role)
     {
-        Id = id;
         Username = username;
         HashPassword = hashPassword;
         Role = role;
     }
 
-    public static Result<User> Create(long id, string name, string hashPassword, Role role)
+    public static Result<User> Create(string name, string hashPassword, Role role)
     {
         var userNameResult = UserName.Create(name);
         if (!userNameResult.IsSuccess)
-            return Result<User>.Failure(userNameResult.Errors);
+            return Result<User>.Failure(userNameResult.ErrorResponse.Errors);
 
-        return new User(id, userNameResult.Value!, hashPassword, role);
+        return new User(userNameResult.Data!, hashPassword, role);
     }
 
     public void Activate() => IsActive = true;
