@@ -8,6 +8,7 @@ public static class InfrastructureExtensions
     public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddContext(configuration);
+        services.AddRepositories();
         return services;
     }
 }
