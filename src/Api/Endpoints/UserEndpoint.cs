@@ -13,9 +13,13 @@ public static class UserEndpoint
         group.MapPost("/register", async (RegisterUserRequest request, IRegisterUserUseCase useCase) =>
             {
                 var result = await useCase.ExecuteAsync(request);
-                return result.IsSuccess
-                    ? Results.Created(string.Empty, result.Data)
+                if (result.IsSuccess)
+                    return Results.Created(string.Empty, result.Data);
+
+                return (result.ErrorResponse.Status == StatusCodes.Status409Conflict)
+                    ? Results.Conflict(result.ErrorResponse)
                     : Results.BadRequest(result.ErrorResponse);
+
             }).WithName("RegisterUser")
             .WithSummary("Registers a user")
             .Produces<UserResponse>(StatusCodes.Status201Created);
