@@ -27,4 +27,7 @@
     <data name="PASSWORD_INVALID" xml:space="preserve">
         <value>Password too short</value>
     </data>
+    <data name="USER_ALREADY_EXISTS" xml:space="preserve">
+        <value>User already registered</value>
+    </data>
 </root>

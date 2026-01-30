@@ -85,5 +85,14 @@ namespace Core.Errors {
                 return ResourceManager.GetString("PASSWORD_INVALID", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User already registered.
+        /// </summary>
+        public static string USER_ALREADY_EXISTS {
+            get {
+                return ResourceManager.GetString("USER_ALREADY_EXISTS", resourceCulture);
+            }
+        }
     }
 }

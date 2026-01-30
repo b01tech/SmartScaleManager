@@ -20,4 +20,7 @@
     <data name="PASSWORD_INVALID" xml:space="preserve">
         <value>A senha muito curta</value>
     </data>
+    <data name="USER_ALREADY_EXISTS" xml:space="preserve">
+        <value>Usuário já cadastrado</value>
+    </data>
 </root>
