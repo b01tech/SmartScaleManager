@@ -9,7 +9,7 @@ public static class DbContextExtensions
 {
     public static void AddContext(this IServiceCollection services, IConfiguration configuration)
     {
-        var connectionString = configuration.GetConnectionString("DefaultConnection") ?? string.Empty;
+        var connectionString = configuration.GetConnectionString("PostgresConnection") ?? string.Empty;
         services.AddDbContext<ScaleAppDbContext>(options =>
             options.UseNpgsql(connectionString));
     }
