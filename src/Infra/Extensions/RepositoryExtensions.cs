@@ -10,5 +10,6 @@ public static class RepositoryExtensions
     {
         services.AddScoped<IUnitOfWork, UnitOfWork>();
         services.AddScoped<IUserWriteRepository, UserRepository>();
+        services.AddScoped<IUserReadOnlyRepository, UserRepository>();
     }
 }
