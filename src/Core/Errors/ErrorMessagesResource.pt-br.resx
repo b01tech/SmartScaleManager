@@ -17,4 +17,7 @@
     <data name="NAME_INVALID" xml:space="preserve">
         <value>Nome inválido</value>
     </data>
+    <data name="PASSWORD_INVALID" xml:space="preserve">
+        <value>A senha muito curta</value>
+    </data>
 </root>
