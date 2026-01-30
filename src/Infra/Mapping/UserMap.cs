@@ -12,7 +12,14 @@ public static class UserMap
             entity.ToTable("users");
             entity.HasKey(x => x.Id);
             entity.Property(x => x.Id).ValueGeneratedOnAdd();
-            entity.Property(x => x.Username).IsRequired().HasMaxLength(50);
+            entity.OwnsOne(x => x.Username, cb =>
+            {
+                cb.Property(v => v.Value)
+                    .HasColumnName("Username")
+                    .IsRequired()
+                    .HasMaxLength(50);
+            });
+
             entity.Property(x => x.HashPassword).IsRequired().HasMaxLength(255);
             entity.Property(x => x.IsActive).IsRequired();
             entity.Property(x => x.Role).IsRequired();
