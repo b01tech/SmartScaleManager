@@ -10,6 +10,7 @@ public class User
     public UserName Username { get; private set; } = null!;
     public string HashPassword { get; private set; } = string.Empty;
     public Role Role { get; private set; }
+    public bool IsActive { get; private set; } = true;
 
     protected User() { }
 
@@ -29,4 +30,7 @@ public class User
 
         return new User(id, userNameResult.Value!, hashPassword, role);
     }
+
+    public void Activate() => IsActive = true;
+    public void Deactivate() => IsActive = false;
 }
