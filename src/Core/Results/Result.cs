@@ -1,20 +1,16 @@
-﻿using System.Runtime.InteropServices.JavaScript;
-
-namespace Core.Results;
+﻿namespace Core.Results;
 
 public class Result<T>
 {
     public bool IsSuccess { get; }
-    public T? Value { get; }
-    public IEnumerable<string> Errors { get; } = [];
-    public int? StatusCode { get; }
+    public T? Data { get; }
+    public ErrorResponse ErrorResponse { get; }
 
-    private Result(bool isSuccess, T? value, IEnumerable<string> errors, int? statusCode = null)
+    private Result(bool isSuccess, T? data, IEnumerable<string> errors, int? statusCode = null)
     {
         IsSuccess = isSuccess;
-        Value = value;
-        Errors = errors;
-        StatusCode = statusCode;
+        Data = data;
+        ErrorResponse = new ErrorResponse(statusCode ?? 400, errors.ToList());
     }
 
     public static Result<T> Success(T value) => new(true, value, []);
