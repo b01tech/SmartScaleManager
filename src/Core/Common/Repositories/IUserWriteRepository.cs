@@ -6,4 +6,6 @@ namespace Core.Common.Repositories;
 public interface IUserWriteRepository
 {
     Task<Result<User>> RegisterUser(User user);
+    Task SoftDelete(long id);
+    Task Activate(long id);
 }
