@@ -13,8 +13,9 @@ public class UserName
         Value = value;
     }
 
-    public static Result<UserName> Create(string value)
+    public static Result<UserName> Create(string input)
     {
+        var value = input.Trim();
         if (string.IsNullOrWhiteSpace(value))
             return Result<UserName>.Failure(ErrorMessagesResource.NAME_EMPTY);
         if (value.Length < MinLenght)

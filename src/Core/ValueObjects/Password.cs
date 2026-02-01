@@ -13,8 +13,9 @@ public class Password
         Value = value;
     }
 
-    public static Result<Password> Create(string value)
+    public static Result<Password> Create(string input)
     {
+        var value = input.Trim();
         if (string.IsNullOrWhiteSpace(value) || value.Length < MinLenght)
             return Result<Password>.Failure(ErrorMessagesResource.PASSWORD_INVALID);
         return Result<Password>.Success(new Password(value));
