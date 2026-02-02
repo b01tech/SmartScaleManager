@@ -5,5 +5,7 @@
     <Project Path="src/Core/Core.csproj" />
     <Project Path="src/Infra/Infra.csproj" />
   </Folder>
-  <Project Path="test/Core.Test/Core.Test.csproj" />
+  <Folder Name="/test/">
+    <Project Path="test/Core.Test/Core.Test.csproj" />
+  </Folder>
 </Solution>
